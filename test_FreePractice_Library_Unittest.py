@@ -1,6 +1,7 @@
 import unittest
 
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 # inport unittest library
 
@@ -40,4 +41,13 @@ class TestLoginPage(unittest.TestCase):
 
         assert actual_url == expected_url
         self.assertEqual(actual_url, expected_url, "Unexpected URL")
+
+    # test if the title is correct
+
+    # test if text is correct
+
+    # test button login
+    def test_button_login_is_displed(self):
+        btn_login = self.driver.find_element(By.XPATH, '//*[@id="first-step-continue-btn"]')
+        self.assertTrue(btn_login.is_displayed())
 
