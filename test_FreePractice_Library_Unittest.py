@@ -3,10 +3,13 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-# inport unittest library
+
+# import unittest library
 
 class TestLoginPage(unittest.TestCase):
-    LINK = "https://welcome.login-romania.rc.ringier.com/?client=83131823a2d24a52903c5bde95bbe4ef&interaction=bAwdgExOTb7JHofQs_klQ&login_case=commenting&source=gsp-menu-desktop&gacid=&external_ga_client_id=&lang=ro&reason=no_session&brand_theme=&email_hint=&email_force=&connection=#/"
+    LINK = ("https://welcome.login-romania.rc.ringier.com/?client=83131823a2d24a52903c5bde95bbe4ef&interaction"
+            "=bAwdgExOTb7JHofQs_klQ&login_case=commenting&source=gsp-menu-desktop&gacid=&external_ga_client_id=&lang"
+            "=ro&reason=no_session&brand_theme=&email_hint=&email_force=&connection=#/")
 
     def setUp(self):
         # definim instructiunile pe care dorim sa le
@@ -19,7 +22,6 @@ class TestLoginPage(unittest.TestCase):
         self.driver = webdriver.Chrome()
 
         # 2. go to page
-
         self.driver.get(self.LINK)
 
         # 3. max browser win
@@ -50,4 +52,3 @@ class TestLoginPage(unittest.TestCase):
     def test_button_login_is_displed(self):
         btn_login = self.driver.find_element(By.XPATH, '//*[@id="first-step-continue-btn"]')
         self.assertTrue(btn_login.is_displayed())
-
